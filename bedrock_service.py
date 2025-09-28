@@ -4,7 +4,6 @@ AWS Bedrock Agent service functions.
 
 import json
 import time
-import logging
 import asyncio
 from typing import Optional
 
@@ -14,36 +13,20 @@ from botocore.exceptions import BotoCoreError, ClientError
 from config import BedrockConfig
 
 
-AGENT_CALL_TIMEOUT = 45.0  # seconds
-
-
-logger = logging.getLogger(__name__)
-
-
 class BedrockService:
-    """Encapsulates all AWS Bedrock Agent interactions."""
-
-    def __init__(
-        self,
-        config: BedrockConfig,
-        *,
-        runtime_client: Optional[object] = None,
-        agent_runtime_client: Optional[object] = None,
-    ) -> None:
+    """
+    Professional AWS Bedrock Agent integration.
+    
+    """
+    
+    def __init__(self, config: BedrockConfig):
         self.config = config
-        self.bedrock_runtime = runtime_client or boto3.client(
-            "bedrock-runtime", region_name=config.region
-        )
-        self.bedrock_agent_runtime = agent_runtime_client or boto3.client(
-            "bedrock-agent-runtime", region_name=config.region
-        )
-
-        logger.info("[BEDROCK] Service initialized for region: %s", config.region)
-        logger.debug(
-            "[BEDROCK] Using agents redis=%s standard=%s",
-            config.agent_id_redis,
-            config.agent_id_opensearch,
-        )
+        self.bedrock_runtime = boto3.client("bedrock-runtime", region_name=config.region)
+        self.bedrock_agent_runtime = boto3.client("bedrock-agent-runtime", region_name=config.region)
+        
+        print(f"[BEDROCK] Service initialized for region: {config.region}")
+        print(f"[BEDROCK] Redis-enhanced agent: {config.agent_id_redis}")
+        print(f"[BEDROCK] Standard agent: {config.agent_id_opensearch}")
     
     async def invoke_redis_enhanced_agent(self, query: str, context: str = "") -> str:
         """
@@ -106,50 +89,36 @@ class BedrockService:
         start_time = time.time()
         
         try:
+            # Prepare enhanced query with context
             enhanced_query = self._prepare_query(query, context)
             session_id = f"session-{session_prefix}-{int(time.time())}"
-
-            logger.debug(
-                "[BEDROCK] Invoking agent %s with session %s (chars=%s)",
-                agent_id,
-                session_id,
-                len(enhanced_query),
+            
+            print(f"[BEDROCK] Invoking agent {agent_id}")
+            print(f"[BEDROCK] Query length: {len(enhanced_query)} characters")
+            print(f"[BEDROCK] Session: {session_id}")
+            
+            # Run agent invocation in thread pool to avoid blocking
+            loop = asyncio.get_event_loop()
+            response = await loop.run_in_executor(
+                None, 
+                self._invoke_agent_sync,
+                agent_id, 
+                enhanced_query, 
+                session_id
             )
-
-            loop = asyncio.get_running_loop()
-            response = await asyncio.wait_for(
-                loop.run_in_executor(
-                    None,
-                    self._invoke_agent_sync,
-                    agent_id,
-                    enhanced_query,
-                    session_id,
-                ),
-                timeout=AGENT_CALL_TIMEOUT,
-            )
-
+            
             elapsed = time.time() - start_time
-            logger.info(
-                "[BEDROCK] Response received in %.3fs (length=%s chars)",
-                elapsed,
-                len(response),
-            )
-
+            print(f"[BEDROCK] Response received in {elapsed:.3f}s")
+            print(f"[BEDROCK] Response length: {len(response)} characters")
+            
             return response
-
-        except asyncio.TimeoutError as exc:
+            
+        except Exception as e:
             elapsed = time.time() - start_time
-            error_msg = (
-                f"Agent {agent_id} timed out after {elapsed:.3f}s with timeout {AGENT_CALL_TIMEOUT}s"
-            )
-            logger.error(error_msg)
-            raise Exception(error_msg) from exc
-
-        except Exception as exc:  # pragma: no cover - defensive logging
-            elapsed = time.time() - start_time
-            error_msg = f"Agent {agent_id} failed after {elapsed:.3f}s: {exc}"
-            logger.error(error_msg)
-            raise Exception(error_msg) from exc
+            error_msg = f"Agent {agent_id} failed after {elapsed:.3f}s: {str(e)}"
+            print(f"[BEDROCK] ERROR: {error_msg}")
+            print(f"[BEDROCK] Error type: {type(e).__name__}")
+            raise Exception(error_msg)
     
     def _prepare_query(self, query: str, context: str) -> str:
         """
@@ -195,18 +164,13 @@ class BedrockService:
         except ClientError as e:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
             error_message = e.response.get('Error', {}).get('Message', str(e))
-            logger.error(
-                "[BEDROCK] ClientError during invoke [%s]: %s", error_code, error_message
-            )
             raise Exception(f"Bedrock ClientError [{error_code}]: {error_message}")
             
         except BotoCoreError as e:
-            logger.error("[BEDROCK] BotoCoreError during invoke: %s", e)
-            raise Exception(f"Bedrock BotoCoreError: {str(e)}") from e
+            raise Exception(f"Bedrock BotoCoreError: {str(e)}")
             
         except Exception as e:
-            logger.error("[BEDROCK] Unexpected invoke error: %s", e)
-            raise Exception(f"Unexpected Bedrock error: {str(e)}") from e
+            raise Exception(f"Unexpected Bedrock error: {str(e)}")
     
     def _process_streaming_response(self, response: dict) -> str:
         """
@@ -240,17 +204,16 @@ class BedrockService:
                     trace = event.get("trace", {})
                     trace_type = trace.get("type", "unknown")
                     if trace_type != "guardrailTrace":  # Reduce noise
-                        logger.debug("[BEDROCK] Trace event: %s", trace_type)
+                        print(f"[BEDROCK] Trace: {trace_type}")
             
             if not full_response:
                 raise Exception("Empty response from Bedrock agent")
             
-            logger.debug("[BEDROCK] Processed %s response chunks", chunk_count)
+            print(f"[BEDROCK] Processed {chunk_count} response chunks")
             return full_response.strip()
             
-        except Exception as e:  # pragma: no cover - defensive logging
-            logger.error("[BEDROCK] Response processing failed: %s", e)
-            raise Exception(f"Response processing failed: {str(e)}") from e
+        except Exception as e:
+            raise Exception(f"Response processing failed: {str(e)}")
     
     def generate_embedding(self, text: str) -> list:
         """
@@ -266,7 +229,6 @@ class BedrockService:
             Exception: If embedding generation fails
         """
         try:
-            logger.debug("[BEDROCK] Generating embedding (chars=%s)", len(text))
             response = self.bedrock_runtime.invoke_model(
                 modelId=self.config.embedding_model,
                 contentType="application/json",
@@ -285,14 +247,12 @@ class BedrockService:
             
             return embedding
             
-        except ClientError as e:  # pragma: no cover - depends on AWS response
+        except ClientError as e:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
-            logger.error("[BEDROCK] Embedding generation failed [%s]: %s", error_code, e)
-            raise Exception(f"Embedding generation failed [{error_code}]: {str(e)}") from e
-
-        except Exception as e:  # pragma: no cover - defensive logging
-            logger.error("[BEDROCK] Embedding error: %s", e)
-            raise Exception(f"Embedding error: {str(e)}") from e
+            raise Exception(f"Embedding generation failed [{error_code}]: {str(e)}")
+            
+        except Exception as e:
+            raise Exception(f"Embedding error: {str(e)}")
     
     def health_check(self) -> dict:
         """
@@ -313,7 +273,7 @@ class BedrockService:
             health_status["bedrock_runtime"] = True
             health_status["embedding_service"] = True
         except Exception as e:
-            logger.warning("[BEDROCK] Runtime health check failed: %s", e)
+            print(f"[BEDROCK] Runtime health check failed: {e}")
         
         # Test Agent Runtime connectivity (without full invocation)
         try:
@@ -321,6 +281,6 @@ class BedrockService:
             self.bedrock_agent_runtime.meta.client
             health_status["bedrock_agent_runtime"] = True
         except Exception as e:
-            logger.warning("[BEDROCK] Agent runtime health check failed: %s", e)
+            print(f"[BEDROCK] Agent runtime health check failed: {e}")
         
         return health_status
