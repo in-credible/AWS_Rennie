@@ -1,3 +1,4 @@
+# w-adebayo
 resource "google_compute_instance" "inspec_instance" {
   count        = var.enabled == true ? 1 : 0
   name         = "${var.name}-${var.environment}-${var.namespace}-instance"

@@ -1,4 +1,5 @@
 #!/bin/bash
+# w-adebayo
 
 if [ -f .env-prod ]; then
 	echo ".env-prod already exists, if you would like to regenerate your secrets, please delete this file and re-run the script."

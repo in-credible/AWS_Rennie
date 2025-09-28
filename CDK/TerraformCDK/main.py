@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# w-adebayo
 from constructs import Construct
 from cdktf import App, TerraformStack
 
@@ -12,13 +13,13 @@ class MyStack(TerraformStack):
         AwsProvider(self, 'Aws', region='us-east-1')
 
         # SNS Topic
-        BlogTopic = SnsTopic(self, 'Topic', display_name='panong-blog-cdktf')
+        BlogTopic = SnsTopic(self, 'Topic', display_name='w-ade-blog-cdktf')
 
         # CloudWatch Alarm
-        CloudwatchMetricAlarm(self, 'PAnongBlogAlarm',
+        CloudwatchMetricAlarm(self, 'w-adeBlogAlarm',
                                 actions_enabled     = True,
                                 alarm_actions       = [BlogTopic.arn],
-                                alarm_name          = 'panong-blog-cdktf',
+                                alarm_name          = 'w-ade-blog-cdktf',
                                 comparison_operator = 'GreaterThanOrEqualToThreshold',
                                 evaluation_periods  = 1,
                                 metric_name         = 'VpcEventCount',

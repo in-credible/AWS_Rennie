@@ -1,3 +1,4 @@
+# w-adebayo
 #CREATE THE NECESSARY TABLESPACE ON TARGET DB
 #!/usr/bin/python
 
@@ -15,7 +16,7 @@ CREATE TABLESPACE WONDERWOMAN_DATA
     DATAFILE SIZE 100M AUTOEXTEND ON NEXT 100M MAXSIZE UNLIMITED;
 """
 
-proc = Popen(["sqlplus", "panong/dbalady@WONDERWOMAN"], stdout=PIPE, stdin=PIPE, stderr=PIPE)
+proc = Popen(["sqlplus", "w-ade/dbalady@WONDERWOMAN"], stdout=PIPE, stdin=PIPE, stderr=PIPE)
 proc.stdin.write(sql)
 (out, err) = proc.communicate()
 

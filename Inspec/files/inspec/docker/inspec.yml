@@ -1,7 +1,8 @@
-name: PAnong-Docker-Inspec-Profile
-title: PAnong Sample Docker InSpec Profile
-maintainer: Patricia Anong
-copyright: Patricia Anong
+# w-adebayo
+name: w-ade-Docker-Inspec-Profile
+title: w-ade Sample Docker InSpec Profile
+maintainer: Wale adebayo
+copyright: Wale adebayo
 copyright_email: patriciaanong@gmail.com
 license: Apache-2.0
 summary: An InSpec Compliance Profile For Docker

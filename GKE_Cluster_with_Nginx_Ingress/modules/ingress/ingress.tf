@@ -1,3 +1,4 @@
+# w-adebayo
 resource helm_release wp {
 
   count = terraform.workspace != "default" ? 1 : 0

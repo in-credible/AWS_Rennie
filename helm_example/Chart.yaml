@@ -1,5 +1,6 @@
+# w-adebayo
 apiVersion: v1
-description: A Helm chart example for Patricia Anong's Blog
+description: A Helm chart example for Wale adebayo's Blog
 name: helm_example
 version: 0.1.0
 maintainers:

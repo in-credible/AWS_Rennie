@@ -1,3 +1,4 @@
+# w-adebayo
 # Compute
 machine_type = "n1-standard-1"
 
@@ -17,7 +18,7 @@ namespace = "inspec"
 
 environment = "test"
 
-name = "panong"
+name = "w-ade"
 
 enabled = true
 

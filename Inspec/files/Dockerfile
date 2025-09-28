@@ -1,7 +1,7 @@
 FROM nginx:latest
 USER root
 
-ARG INSTANCE_NAME=panong-test-inspec-instance
+ARG INSTANCE_NAME=w-ade-test-inspec-instance
 ARG PROJECT_NAME=inspecplaygroundgcp
 
 # Go, Make, Docker, Python, jq, git, ruby
