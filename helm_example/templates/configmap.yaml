@@ -1,0 +1,10 @@
+# Wade Bayo
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: configmap
+  namespace: helm-example
+data:
+  NGINX_PORT: "{{ .Values.helm_example.service.externalPort }}"
+  
+

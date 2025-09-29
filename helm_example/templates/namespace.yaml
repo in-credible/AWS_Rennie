@@ -1,0 +1,5 @@
+# Wade Bayo
+apiVersion: v1
+kind: Namespace
+metadata: 
+  name: {{ .Values.helm_example.namespace }}
