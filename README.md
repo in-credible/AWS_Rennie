@@ -1,8 +1,7 @@
 # Wade's AWS Automation Scripts
-This directory is a personalized clone of the AWS_Rennie repository, curated for Wade Bayo while preserving the original layout.
 
 # Blog
-Scripts from my Blog [Patricia-Anong.com/blog](https://Patricia-Anong.com/blog)
+Scripts from my Blog [wale-adebayo.com/blog](https://wale-adebayo.com/blog)
 
 ## Gitpod workspace helpers
 The `gitpod/create-resources.sh` and `gitpod/destroy-resources.sh` scripts prepare a Gitpod workspace, install the CDK dependencies, and deploy or remove the `automation-rocks` stacks in `us-east-1` and `us-east-2`. Ensure your AWS credentials are available in the environment before running them (for example via `aws configure` or temporary session variables).
