@@ -1,4 +1,4 @@
-# w-adebayo
+#w-ade
 #CREATE TNS ENTRY ON SOURCE ORACLE DB
 
 WONDERWOMAN =

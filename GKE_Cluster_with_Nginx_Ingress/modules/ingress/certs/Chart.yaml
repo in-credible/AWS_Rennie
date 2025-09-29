@@ -1,4 +1,4 @@
-# w-adebayo
+#w-ade
 apiVersion: v2
 name: certs
 description: A Helm chart for deploying cert-manager
@@ -9,5 +9,5 @@ version: 0.1.0
 appVersion: 0.1.0
 
 maintainers:
-  - name: w-adebayo
+  - name: Wade Bayo
     email: patricia@patricia-anong.com

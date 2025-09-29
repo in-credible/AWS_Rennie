@@ -1,5 +1,5 @@
-# w-adebayo
-_author_ = 'w-ade'
+#w-ade
+_author_ = 'wade'
 
 use Gryffindor
 

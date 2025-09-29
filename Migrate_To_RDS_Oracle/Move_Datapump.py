@@ -1,4 +1,4 @@
-# w-adebayo
+#w-ade
 #MOVE DATAPUMP FILE USING DBLINK 
 
 #!/usr/bin/python

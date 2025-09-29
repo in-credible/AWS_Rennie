@@ -1,4 +1,4 @@
--- Personalized for w-adebayo - cloned from AWS_Rennie
+-- Personalized for Wade Bayo - cloned from AWS_Rennie
 /* RDS ORACLE INSTANCE -- TARGET
 RUN AS SYSDBA */
 

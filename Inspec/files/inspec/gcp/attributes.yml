@@ -1,7 +1,7 @@
-# w-adebayo
+#w-ade
 # Below is to be uncommented and set with your GCP project ID:
 gcp_project_id: inspecplaygroundgcp
 region_name: us-east1
 zone: us-east1-b
-instance_name: w-ade-test-inspec-instance
+instance_name: wade-test-inspec-instance
 bucket: inspec-files-bucket

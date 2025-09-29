@@ -1,4 +1,4 @@
-# w-adebayo
+#w-ade
 #CREATE TASK
 aws dms create-replication-task 
   --replication-task-identifier dr-who-migration 
@@ -6,8 +6,8 @@ aws dms create-replication-task
   --target-endpoint-arn arn:aws:dms:us-east-1:111111111111:endpoint:YUPSHESUREIS02WOWZERS 
   --replication-instance-arn arn:aws:dms:us-east-1:111111111111:rep:SOCRAZYTHATDOCTORWHOSIAWOMAN03 
   --migration-type full-load 
-  --table-mappings file:////home/w-ade/DMS_TABLEMAPPINGS.json 
-  --replication-task-settings file:////home/w-ade/DMS_TASKSETTINGS.json
+  --table-mappings file:////home/wade/DMS_TABLEMAPPINGS.json 
+  --replication-task-settings file:////home/wade/DMS_TASKSETTINGS.json
 
   
 #START TASK

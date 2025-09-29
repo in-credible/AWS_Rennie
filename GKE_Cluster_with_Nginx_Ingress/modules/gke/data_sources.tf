@@ -1,4 +1,4 @@
-# w-adebayo
+#w-ade
 locals {
 
   gke_name = "gke-${var.name_prefix}-${var.environment}-${var.region}"

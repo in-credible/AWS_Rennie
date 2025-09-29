@@ -1,8 +1,8 @@
 #!/bin/bash
-# w-adebayo
+#w-ade
 
-export EMAIL=waleadebayo@gmail.com
-export CIRCLE=w-ade_Inspec_Blog
+export EMAIL=patriciaanong@gmail.com
+export CIRCLE=wade_Inspec_Blog
 export API_KEY=`cat /run/secrets/heimdall_key`
 
 # Run Inspec Profiles

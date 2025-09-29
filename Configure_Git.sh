@@ -1,4 +1,4 @@
-# w-adebayo
+#w-ade
 #cd to the directory you want to set up
 cd /path/to/empty/directory/
 

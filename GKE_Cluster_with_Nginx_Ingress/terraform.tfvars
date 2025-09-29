@@ -1,5 +1,5 @@
-# w-adebayo
-project     = "w-ade-blog-gke"
+#w-ade
+project     = "wade-blog-gke"
 region      = "us-east1"
 environment = "dev"
 name_prefix = "devops-rules"

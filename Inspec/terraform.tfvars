@@ -1,4 +1,4 @@
-# w-adebayo
+#w-ade
 # Compute
 machine_type = "n1-standard-1"
 
@@ -18,7 +18,7 @@ namespace = "inspec"
 
 environment = "test"
 
-name = "w-ade"
+name = "wade"
 
 enabled = true
 

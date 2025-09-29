@@ -1,9 +1,9 @@
-# w-adebayo
-name: w-ade-GCP-Inspec-Profile
-title: w-ade Sample GCP InSpec Profile
-maintainer: w-adebayo
-copyright: w-adebayo
-copyright_email: waleadebayo@gmail.com
+#w-ade
+name: wade-GCP-Inspec-Profile
+title: wade Sample GCP InSpec Profile
+maintainer: Wade Bayo
+copyright: Wade Bayo
+copyright_email: patriciaanong@gmail.com
 license: Apache-2.0
 summary: An InSpec Compliance Profile For GCP
 version: 0.1.0

@@ -1,12 +1,12 @@
-# w-adebayo
+#w-ade
 #Create a directory for all the packages
 mkdir /opt/oracle
 cd /opt/oracle
-unzip /home/w-ade/Downloads/instantclient-basic-linux.x64-12.2.0.1.0.zip
-unzip /home/w-ade/Downloads/java_ee_sdk-7u3.zie
+unzip /home/wade/Downloads/instantclient-basic-linux.x64-12.2.0.1.0.zip
+unzip /home/wade/Downloads/java_ee_sdk-7u3.zie
 
 #TAR.GZ FOR cx_oracle
-tar -zxvf /home/w-ade/Downloads/cx_Oracle-6.0rc1.tar.gz
+tar -zxvf /home/wade/Downloads/cx_Oracle-6.0rc1.tar.gz
 #OR RPM
 rpm -ivh cx_Oracle-6.0rc1-py27-1.x86_64.rpm
 
