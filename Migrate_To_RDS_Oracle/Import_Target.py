@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 #IMPORT FILES ON RDS
 #!/usr/bin/python
 

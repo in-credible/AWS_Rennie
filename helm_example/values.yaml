@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 replicaCount: 1
 helm_example:
   name: "helm-example"

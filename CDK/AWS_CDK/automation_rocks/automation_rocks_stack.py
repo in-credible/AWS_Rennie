@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 from aws_cdk import (
   core,
   aws_cloudwatch as cw,
@@ -25,7 +25,7 @@ class AutomationRocksStack(core.Stack):
 
         snsEmail = core.CfnParameter(self,
                                       'SNSEmail',
-                                      default = 'wade@automation_rocks.com',
+                                      default = 'w-ade@automation_rocks.com',
                                       description = 'Email Endpoint for SNS Notifications',
                                       type = 'String'
                                       )

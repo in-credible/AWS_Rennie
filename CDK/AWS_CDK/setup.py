@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 import setuptools
 
 

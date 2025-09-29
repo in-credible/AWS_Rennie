@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 #CREATE TNS ENTRY ON SOURCE ORACLE DB
 
 WONDERWOMAN =

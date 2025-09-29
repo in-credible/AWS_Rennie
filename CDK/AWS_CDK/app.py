@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Wade Bayo
+# w-adebayo
 
 from aws_cdk import core
 

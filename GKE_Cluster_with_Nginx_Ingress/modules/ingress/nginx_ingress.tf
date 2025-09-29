@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 resource helm_release ingress {
 
   count = terraform.workspace != "default" ? 1 : 0

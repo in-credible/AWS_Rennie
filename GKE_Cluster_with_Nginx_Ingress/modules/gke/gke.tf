@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 resource google_project_service project {
   for_each = terraform.workspace != "default" ? var.enable_apis : {}
   project = var.project

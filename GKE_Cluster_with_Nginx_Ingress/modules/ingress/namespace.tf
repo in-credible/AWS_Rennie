@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 resource kubernetes_namespace certs {
   count = terraform.workspace != "default" ? 1 : 0
 

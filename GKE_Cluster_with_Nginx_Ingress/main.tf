@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 module gke {
 
   source      = "./modules/gke"

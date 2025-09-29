@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 # DNS Service Account
 resource google_service_account service_account {
   count = terraform.workspace != "default" ? 1 : 0

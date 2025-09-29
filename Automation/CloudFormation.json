@@ -236,7 +236,7 @@
                 "content" : { "Fn::Join" : [ "", [
                   "<html>\n",
                   "  <head>\n",
-                  "    <title>Wade Bayo's Automation Test Website from LAMP STACK</title>\n",
+                  "    <title>w-adebayo's Automation Test Website from LAMP STACK</title>\n",
                   "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n",
                   "  </head>\n",
                   "  <body>\n",

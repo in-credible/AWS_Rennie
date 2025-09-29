@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 resource "google_compute_instance" "inspec_instance" {
   count        = var.enabled == true ? 1 : 0
   name         = "${var.name}-${var.environment}-${var.namespace}-instance"
@@ -43,7 +43,7 @@ resource "google_compute_instance" "inspec_instance" {
   }
 
   service_account {
-    email = "patriciaanong@inspecplaygroundgcp.iam.gserviceaccount.com"
+    email = "waleadebayo@inspecplaygroundgcp.iam.gserviceaccount.com"
     scopes = var.scopes
   }
 }

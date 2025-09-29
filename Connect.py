@@ -1,7 +1,7 @@
-# Wade Bayo
+# w-adebayo
 import pymongo
 
-_author_ = 'wade'
+_author_ = 'w-ade'
 
 uri = "mongodb://Harry:Hogwarts4ever@192.142.32.100/gryffindor"
 client = pymongo.MongoClient(uri)

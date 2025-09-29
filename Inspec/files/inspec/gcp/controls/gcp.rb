@@ -1,6 +1,6 @@
-# copyright: 2019, Wade Bayo
+# copyright: 2019, w-adebayo
 
-title "wade Sample Control"
+title "w-ade Sample Control"
 
 gcp_project_id = attribute("gcp_project_id")
 region_name = attribute("region_name")
@@ -54,7 +54,7 @@ control "gcp-instance-1.0" do
   desc "caveat", "If the Instance does not exist - run terraform apply."
   describe google_compute_instance(project: gcp_project_id, zone: zone, name: instance_name) do
     it { should exist }
-    its("name") { should eq "wade-test-inspec-instance" }
+    its("name") { should eq "w-ade-test-inspec-instance" }
     its("machine_type") { should match "n1-standard-1" }
     its("cpu_platform") { should match "Intel Haswell" }
     its("status") { should eq "RUNNING" }

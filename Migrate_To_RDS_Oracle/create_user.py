@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Wade Bayo
+# w-adebayo
 import boto3
 import pprint
 

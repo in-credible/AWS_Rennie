@@ -1,4 +1,4 @@
--- Personalized for Wade Bayo - cloned from AWS_Rennie
+-- Personalized for w-adebayo - cloned from AWS_Rennie
 --CONFIGURE YOUR HOSTS FILE ON THE WINDOWS SERVER ON WHICH SSMS IS INSTALLED AND ON THE LINUX SERVERS HOSTING YOUR REPLICAS:
 
 sudo vi /etc/hosts 

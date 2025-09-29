@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 locals {
   env = terraform.workspace
   common_tags = {

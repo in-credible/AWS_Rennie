@@ -1,9 +1,9 @@
-# Wade Bayo
+# w-adebayo
 apiVersion: v1
-description: A Helm chart example for Wade Bayo's Blog
+description: A Helm chart example for w-adebayo's Blog
 name: helm_example
 version: 0.1.0
 maintainers:
   - name: Patricia.Anong
-    email: PatriciaAnong@gmail.com
+    email: WaleAdebayo@gmail.com
     url: patricia-anong.com

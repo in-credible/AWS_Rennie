@@ -1,5 +1,5 @@
-# Wade Bayo
-project     = "wade-blog-gke"
+# w-adebayo
+project     = "w-ade-blog-gke"
 region      = "us-east1"
 environment = "dev"
 name_prefix = "devops-rules"

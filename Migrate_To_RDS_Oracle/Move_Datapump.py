@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 #MOVE DATAPUMP FILE USING DBLINK 
 
 #!/usr/bin/python

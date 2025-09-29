@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 provider google {
   project     = var.project
   region      = var.region

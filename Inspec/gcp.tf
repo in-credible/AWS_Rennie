@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 provider "google" {
   credentials = "${file("creds.json")}"
   project     = var.project

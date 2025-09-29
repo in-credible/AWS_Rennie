@@ -1,9 +1,9 @@
-# Wade Bayo
-name: wade-SSH-Inspec-Profile
-title: wade Sample SSH InSpec Profile
-maintainer: Wade Bayo
-copyright: Wade Bayo
-copyright_email: patriciaanong@gmail.com
+# w-adebayo
+name: w-ade-SSH-Inspec-Profile
+title: w-ade Sample SSH InSpec Profile
+maintainer: w-adebayo
+copyright: w-adebayo
+copyright_email: waleadebayo@gmail.com
 license: Apache-2.0
 summary: An InSpec Compliance Profile For SSH
 version: 0.1.0

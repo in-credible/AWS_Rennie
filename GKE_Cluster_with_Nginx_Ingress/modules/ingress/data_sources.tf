@@ -1,4 +1,4 @@
-# Wade Bayo
+# w-adebayo
 locals {
 
   sa_name = "dns-sa-${var.name_prefix}-${var.environment}"

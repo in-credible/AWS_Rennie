@@ -1,5 +1,5 @@
-# Wade Bayo
-_author_ = 'wade'
+# w-adebayo
+_author_ = 'w-ade'
 
 use admin
 

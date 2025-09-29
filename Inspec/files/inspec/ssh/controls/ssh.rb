@@ -1,6 +1,6 @@
-# copyright: 2019, Wade Bayo
+# copyright: 2019, w-adebayo
 
-title "wade Sample Control"
+title "w-ade Sample Control"
 
 include_controls "ssh-baseline" do
 end
